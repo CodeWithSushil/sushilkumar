@@ -2,6 +2,8 @@
 
 [![Deploy to Render](https://github.com/CodeWithSushil/sushilkumar/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/CodeWithSushil/sushilkumar/actions/workflows/deploy.yml)
 
+Portfolio Site: [Visit 👀](https://sushilkumar.onrender.com)
+
 My application using stack:
 
 - [x] PHP 8.5
@@ -136,7 +138,3 @@ SMTP_FROM= email
 ```
 
 ---
-
-[![Deploy Portfolio](https://github.com/CodeWithSushil/sushilkumar/actions/workflows/deploy.yml/badge.svg)](https://github.com/CodeWithSushil/sushilkumar/actions/workflows/deploy.yml)
-
-Portfolio Site: [Visit 👀](https://sushilkumar.onrender.com)
