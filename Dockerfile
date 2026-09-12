@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     unzip \
     && docker-php-ext-configure pdo_sqlite --with-pdo-sqlite=/usr \
-    && docker-php-ext-install pdo pdo_sqlite \
+    && docker-php-ext-install intl pdo pdo_sqlite \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Composer
@@ -16,6 +16,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 COPY composer.json composer.lock ./
 
 # Install production dependencies only
+RUN php -m | grep intl
 RUN php -v && composer --version
 RUN composer validate --no-check-publish
 RUN composer check-platform-reqs
