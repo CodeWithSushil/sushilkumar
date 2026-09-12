@@ -2,7 +2,6 @@ FROM php:8.5-cli
 
 # Install dependencies for SQLite and PHP extensions
 RUN apt-get update && apt-get install -y \
---no-install-recommends \
     libsqlite3-dev \
     libicu-dev \
     unzip \
