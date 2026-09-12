@@ -2,6 +2,7 @@ FROM php:8.5-cli
 
 # Install dependencies for SQLite and PHP extensions
 RUN apt-get update && apt-get install -y \
+--no-install-recommends \
     libsqlite3-dev \
     libicu-dev \
     unzip \
@@ -16,24 +17,12 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 COPY composer.json composer.lock ./
 
 # Install production dependencies only
-RUN php -m | grep intl
-RUN php -v && composer --version
-RUN composer validate --no-check-publish
-RUN composer check-platform-reqs
 RUN composer install \
     --no-dev \
     --prefer-dist \
     --no-interaction \
     --no-progress \
     --optimize-autoloader \
-    -vvv
-
-# RUN composer install \
-#    --no-dev \
-#    --prefer-dist \
-#    --no-interaction \
-#    --no-progress \
-#    --optimize-autoloader
 
 # Copy application
 COPY . .
