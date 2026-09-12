@@ -1,32 +1,47 @@
 FROM php:8.5-cli
 
-# Install dependencies for SQLite and PHP extensions
+# Install required system packages and PHP extensions
 RUN apt-get update && apt-get install -y \
-    libsqlite3-dev \
     libicu-dev \
+    libsqlite3-dev \
     unzip \
+    git \
     && docker-php-ext-configure pdo_sqlite --with-pdo-sqlite=/usr \
-    && docker-php-ext-install intl pdo pdo_sqlite \
+    && docker-php-ext-install \
+        intl \
+        pdo \
+        pdo_sqlite \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Copy Composer files first for Docker layer caching
+WORKDIR /app
+
+# Copy Composer files first for better Docker caching
 COPY composer.json composer.lock ./
 
-# Install production dependencies only
+# Install production dependencies
 RUN composer install \
     --no-dev \
     --prefer-dist \
     --no-interaction \
     --no-progress \
-    --optimize-autoloader \
+    --optimize-autoloader
 
 # Copy application
 COPY . .
 
-# Render provides the PORT environment variable
+# Make CodeIgniter writable directory available
+RUN mkdir -p \
+    writable/cache \
+    writable/logs \
+    writable/session \
+    writable/uploads \
+    && chmod -R 775 writable
+
+# Render provides PORT
 EXPOSE 10000
 
+# CodeIgniter 4 public directory
 CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-10000} -t public"]

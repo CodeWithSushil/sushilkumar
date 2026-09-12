@@ -17,6 +17,8 @@ storage/cache/*
 storage/database/*.sqlite
 storage/database/*.sqlite3
 
+writable/
+
 *.log
 *.sqlite
 *.sqlite3
