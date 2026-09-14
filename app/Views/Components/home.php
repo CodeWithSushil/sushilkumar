@@ -364,8 +364,8 @@
                     <div class="project-footer">
 
                         <a
-                            href="#"
-                            class="button is-small is-primary"
+                            href="https://packagist.org/packages/supabase-php/supabase-client"
+                            class="button is-small is-primary" target="_blank"
                         >
                             View Project
                         </a>
@@ -428,8 +428,8 @@
                     <div class="project-footer">
 
                         <a
-                            href="#"
-                            class="button is-small is-primary"
+                            href="https://packagist.org/packages/jsondbphp/jsondb"
+                            class="button is-small is-primary" target="_blank"
                         >
                             View Project
                         </a>
@@ -492,8 +492,8 @@
                     <div class="project-footer">
 
                         <a
-                            href="#"
-                            class="button is-small is-primary"
+                            href="https://github.com/CodeWithSushil/setup-hhvm"
+                            class="button is-small is-primary" target="_blank"
                         >
                             View Project
                         </a>
