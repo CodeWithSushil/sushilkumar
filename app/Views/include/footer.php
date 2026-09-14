@@ -1,7 +1,11 @@
-</main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-</script>
-
-</body>
-</html>
-
+<footer class="border-top py-4">
+    <div class="container text-center">
+        <p class="mb-1">
+            ©<span id="year"></span>
+            Sushil Kumar. All rights reserved.
+        </p>
+        <small class="text-body-secondary">
+            Built with PHP, Bootstrap and JavaScript.
+        </small>
+    </div>
+</footer>
