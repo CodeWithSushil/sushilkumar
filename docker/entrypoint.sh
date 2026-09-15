@@ -14,4 +14,4 @@ echo "==> Generating application key..."
 php spark key:generate
 
 echo "==> Starting CodeIgniter..."
-exec php spark serve --host=0.0.0.0 --port=10000
+exec php -S 0.0.0.0:8000 -t public
