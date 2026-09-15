@@ -1,42 +1,8 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('head') ?>
-<meta name="description" content="Sushil Kumar | Full Stack PHP/Laravel Developer, Freelancer, open source contributor, content creator on YouTube and Instagram.">
+<meta name="description" content="About - Sushil Kumar | Full Stack PHP/Laravel Developer, Freelancer, open source contributor, content creator on YouTube and Instagram.">
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>
-<section id="home" class="hero-section">
-  <div class="container px-4">
-    <div class="hero-content">
-      <p class="hero-small-title">
-        Welcome to my portfolio
-      </p>
-      <h1 class="hero-title">
-        Hi, I'm
-        <span>Sushil Kumar</span>
-      </h1>
-      <h2 class="hero-subtitle">
-        Full Stack PHP Developer
-      </h2>
-      <p class="hero-description">
-        I'm a self-taught developer, freelancer and open-source contributor from India. I enjoy building reliable web applications, developer tools, REST APIs and open-source projects using PHP and modern web technologies.
-      </p>
-      <div class="buttons hero-buttons">
-        <a href="/contact" class="button is-primary is-medium">
-          <span class="icon">
-            <i class="fa-solid fa-paper-plane"></i>
-          </span>
-          <span> Hire Me </span>
-        </a>
-        <a href="/services" class="button is-light is-medium">
-          <span class="icon">
-            <i class="fa-solid fa-gear"></i>
-          </span>
-          <span> Services </span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="about" class="portfolio-section">
   <div class="container">
     <div class="section-heading">

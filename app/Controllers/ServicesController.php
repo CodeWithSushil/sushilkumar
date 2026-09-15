@@ -5,10 +5,10 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class HomeController extends BaseController
+class ServicesController extends BaseController
 {
     public function index()
     {
-      return view('home');
+        return view('pages/services');
     }
 }

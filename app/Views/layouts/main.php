@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,26 +41,84 @@
     <link rel="apple-touch-icon" type="image/png" href="favicon.ico" >
     <link rel="canonical" href="https://sushilkumar.onrender.com/">
 
-    <!-- Bootstrap 5.3.8 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="application/ld+json">
+{
+        "@context": "https://schema.org",
+        "@graph": [
+        {
+        "@type": "Person",
+        "@id": "https://sushilkumar.onrender.com/#person",
+        "name": "Sushil Kumar",
+        "url": "https://sushilkumar.onrender.com/",
+        "jobTitle": "Full Stack PHP Developer",
+        "description": "Full Stack PHP developer, freelancer, open source contributor, YouTuber and educator.",
+        "knowsAbout": [
+                "PHP",
+            "JavaScript",
+                        "SQL",
+                        "REST API",
+                        "Laravel",
+                        "Vue.js",
+                        "jQuery",
+                        "Bootstrap",
+                        "Bulma",
+                        "SQLite",
+                        "PostgreSQL",
+                        "MySQL",
+                        "Docker",
+                        "GitHub Actions"
+                ],
+                "sameAs": [
+                        "https://github.com/CodeWithSushil",
+                        "https://x.com/CodeSushil",
+                        "https://www.youtube.com/@Code-With-Sushil",
+                        "https://pinkary.com/@CodeWithSushil",
+                        "https://mastodon.social/@CodeWithSushil",
+                        "https://bsky.app/profile/codewithsushil.bsky.social",
+                        "https://instagram.com/CodeWithSushil"
+                ]
+        },
+        {
+                "@type": "WebSite",
+                "@id": "https://sushilkumar.onrender.com/#website",
+                "url": "https://sushilkumar.onrender.com/",
+                "name": "Sushil Kumar",
+                "description": "Portfolio of Sushil Kumar, Full Stack PHP Developer.",
+                "publisher": {
+                        "@id": "https://sushilkumar.onrender.com/#person"
+                },
+                "inLanguage": "en-IN"
+        },
+        {
+                "@type": "WebPage",
+                "@id": "https://sushilkumar.onrender.com/#webpage",
+                "url": "https://sushilkumar.onrender.com/",
+                "name": "Sushil Kumar - Full Stack PHP Developer",
+                "description": "Portfolio website of Sushil Kumar, a Full Stack PHP developer, freelancer and open source contributor.",
+                "isPartOf": {
+                        "@id": "https://sushilkumar.onrender.com/#website"
+                },
+                "about": {
+                        "@id": "https://sushilkumar.onrender.com/#person"
+                },
+                "inLanguage": "en-IN"
+        }
+        ]
+}
+    </script>
 
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Bulma 1.0.4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"/>
+
     <link href="/css/style.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="background-animation" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <main class="main-area">
+    <?= $this->include('include/header') ?>
+    <main>
         <?= $this->renderSection('content')?>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <?= $this->include('include/footer') ?>
     <script src="/js/main.js" defer></script>
     <?= $this->renderSection('scripts') ?>
 </body>

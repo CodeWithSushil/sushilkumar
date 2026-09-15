@@ -1,259 +1,51 @@
-"use strict";
+const navbarBurger = document.querySelector(".navbar-burger");
+const navbarMenu = document.querySelector("#portfolioNavbar");
 
+navbarBurger.addEventListener("click", ()=> {
+  const isActive = navbarBurger.classList.toggle("is-active");
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+  navbarMenu.classList.toggle("is-active");
 
-const html =
-    document.documentElement;
+  navbarBurger.setAttribute("aria-expanded", isActive);
+});
 
-const layout =
-    document.getElementById(
-        "portfolioLayout"
-    );
+document.querySelectorAll(".navbar-menu .navbar-item").forEach((item)=> {
+  
+  item.addEventListener("click", ()=> {
+    navbarBurger.classList.remove("is-active");
+    navbarMenu.classList.remove("is-active");
+    navbarBurger.setAttribute("aria-expanded","false");
 
-const desktopSidebarToggle =
-    document.getElementById(
-        "desktopSidebarToggle"
-    );
+  });
 
-const themeToggle =
-    document.getElementById(
-        "themeToggle"
-    );
+});
 
-const mobileThemeToggle =
-    document.getElementById(
-        "mobileThemeToggle"
-    );
+const themeToggle = document.querySelector("#themeToggle");
+const themeIcon = document.querySelector("#themeIcon");
+const savedTheme = localStorage.getItem("portfolio-theme");
 
-const year =
-    document.getElementById(
-        "year"
-    );
+if (savedTheme) {
+  document.documentElement.setAttribute("data-theme", savedTheme);
 
-
-/* =========================================================
-   CURRENT YEAR
-========================================================= */
-
-if (year) {
-
-    year.textContent =
-        new Date().getFullYear();
-
+  updateThemeIcon(savedTheme);
 }
 
-
-/* =========================================================
-   DESKTOP SIDEBAR
-========================================================= */
-
-const SIDEBAR_KEY =
-    "portfolio-sidebar-collapsed";
-
-
-function updateSidebarIcon() {
-
-    if (!desktopSidebarToggle) {
-        return;
-    }
-
-
-    const collapsed =
-        layout.classList.contains(
-            "sidebar-collapsed"
-        );
-
-
-    desktopSidebarToggle.innerHTML =
-        collapsed
-
-            ? '<i class="bi bi-layout-sidebar-inset"></i>'
-
-            : '<i class="bi bi-layout-sidebar"></i>';
-
-}
-
-
-function setSidebarState(
-    collapsed
-) {
-
-    if (!layout) {
-        return;
-    }
-
-
-    layout.classList.toggle(
-        "sidebar-collapsed",
-        collapsed
-    );
-
-
-    localStorage.setItem(
-        SIDEBAR_KEY,
-        collapsed
-            ? "1"
-            : "0"
-    );
-
-
-    updateSidebarIcon();
-
-}
-
-
-/*
- * Desktop sidebar is expanded by default.
- */
-
-const savedSidebarState =
-    localStorage.getItem(
-        SIDEBAR_KEY
-    );
-
-
-setSidebarState(
-    savedSidebarState === "1"
-);
-
-
-if (desktopSidebarToggle) {
-
-    desktopSidebarToggle.addEventListener(
-        "click",
-        function () {
-
-            const collapsed =
-                layout.classList.contains(
-                    "sidebar-collapsed"
-                );
-
-
-            setSidebarState(
-                !collapsed
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   THEME
-========================================================= */
-
-const THEME_KEY =
-    "portfolio-theme";
-
-
-function getTheme() {
-
-    return localStorage.getItem(
-        THEME_KEY
-    ) || "light";
-
-}
-
-
-function updateThemeIcon() {
-
-    const theme =
-        html.getAttribute(
-            "data-bs-theme"
-        );
-
-
-    const icon =
-        theme === "dark"
-
-            ? "bi bi-sun"
-
-            : "bi bi-moon-stars";
-
-
-    if (themeToggle) {
-
-        themeToggle.innerHTML =
-            `<i class="${icon}"></i>`;
-
-    }
-
-
-    if (mobileThemeToggle) {
-
-        mobileThemeToggle.innerHTML =
-            `<i class="${icon}"></i>`;
-
-    }
-
-}
-
-
-function setTheme(theme) {
-
-    html.setAttribute(
-        "data-bs-theme",
-        theme
-    );
-
-
-    localStorage.setItem(
-        THEME_KEY,
-        theme
-    );
-
-
-    updateThemeIcon();
-
-}
-
-
-function toggleTheme() {
-
-    const currentTheme =
-        html.getAttribute(
-            "data-bs-theme"
-        );
-
-
-    setTheme(
-
-        currentTheme === "dark"
-
-            ? "light"
-
-            : "dark"
-
-    );
-
-}
-
-
-setTheme(
-    getTheme()
-);
-
-
-if (themeToggle) {
-
-    themeToggle.addEventListener(
-        "click",
-        toggleTheme
-    );
-
-}
-
-
-if (mobileThemeToggle) {
-
-    mobileThemeToggle.addEventListener(
-        "click",
-        toggleTheme
-    );
-
+themeToggle.addEventListener("click", ()=> {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+  document.documentElement.setAttribute("data-theme", newTheme);
+
+  localStorage.setItem("portfolio-theme", newTheme);
+  updateThemeIcon(newTheme);
+});
+
+function updateThemeIcon(theme) {
+  if (theme === "dark") {
+    themeIcon.className = "fa-solid fa-sun";
+  } else {
+    themeIcon.className = "fa-solid fa-moon";
+  }
 }
 
