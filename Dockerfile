@@ -40,8 +40,10 @@ RUN mkdir -p \
     writable/uploads \
     && chmod -R 775 writable
 
+RUN chmod +x docker/entrypoint.sh
 # Render provides PORT
 EXPOSE 10000
 
 # CodeIgniter 4 public directory
-CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-10000} -t public"]
+#CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-10000} -t public"]
+ENTRYPOINT ["./docker/entrypoint.sh"]
