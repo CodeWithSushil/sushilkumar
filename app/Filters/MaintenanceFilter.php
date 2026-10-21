@@ -32,7 +32,7 @@ class MaintenanceFilter implements FilterInterface
         return service('response')
             ->setStatusCode(503)
             ->setHeader('Retry-After', (string) ($data['retry_after'] ?? 600))
-            ->setBody(view('maintenance', ['message' => $data['message'] ?? '']));
+            ->setBody(view('errors/html/error_503', ['message' => $data['message'] ?? '']));
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
