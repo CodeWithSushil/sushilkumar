@@ -1,0 +1,7 @@
+{
+    "message": "We are performing maintenance. Please check back soon.",
+    "allowed_ips": [],
+    "secret": null,
+    "retry_after": 600,
+    "time": "2026-10-21T12:12:44+00:00"
+}
