@@ -13,5 +13,8 @@ php spark env production
 echo "==> Generating application key..."
 php spark key:generate
 
+echo "==> We are maintenance now"
+php spark maintenance:on
+
 echo "==> Starting CodeIgniter..."
 exec php -S 0.0.0.0:8000 -t public
