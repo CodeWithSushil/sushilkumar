@@ -1,4 +1,4 @@
-FROM php:8.5-cli
+FROM php:8.5-fpm
 
 # Install required system packages and PHP extensions
 RUN apt-get update && apt-get install -y \
